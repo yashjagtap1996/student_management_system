@@ -1,0 +1,24 @@
+{% extends 'student_management_system_app/home.html' %}
+
+{% block content %}
+<table class="table">
+    <tr class="text-center">
+        <th>ID</th>
+        <th>Roll</th>
+        <th>Name</th>
+        <th>Marks</th>
+        <th colspan="2">Modification</th>
+    </tr>
+    {% for student in stu %}
+    <tr class="text-center">
+        <td>{{student.id}}</td>
+        <td>{{student.roll}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.marks}}</td>
+        <td><a href="{% url 'remove' student.id %}" class="btn btn-danger">DELETE</a></td>
+        <td><a href="{% url 'update' student.id %}" class="btn btn-warning">UPDATE</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}
